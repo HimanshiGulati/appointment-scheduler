@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Row } from "reactstrap";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import AppointmentItem from "./appointment-item";
@@ -24,10 +24,12 @@ const AppointmentDashboard = () => {
 
   const dispatch = useDispatch();
 
+  // get list of appointment slots from API
   useEffect(() => {
     dispatch(Actions.listAppointmentSlots());
   }, [dispatch]);
 
+  // open and close modal
   const showEditModal = (appointmentItem) => {
     dispatch(Actions.toggleModal());
     dispatch(Actions.selectAppointment(appointmentItem));
@@ -37,6 +39,7 @@ const AppointmentDashboard = () => {
     dispatch(Actions.toggleModal());
   };
 
+  // handle input data and update form
   const updateUserDetails = (e) => {
     const isPhoneNumberValid = validatePhoneNumber(e);
     if (isPhoneNumberValid || e.target.id === "userName") {
@@ -54,6 +57,7 @@ const AppointmentDashboard = () => {
     }
   };
 
+  // post form data on submit
   const saveUserDetails = () => {
     let updatedAppointment;
     if (
