@@ -8,6 +8,16 @@ import {
   ModalHeader,
   ModalBody,
 } from "reactstrap";
+import {
+  APPOINTMENT_MODAL_HEADING,
+  BUTTON_BOOK,
+  BUTTON_CANCEL,
+  BUTTON_UPDATE,
+  LABEL_NAME,
+  LABEL_PHONE_NUMBER,
+  PLACEHOLDER_NAME,
+  PLACEHOLDER_PHONE_NUMBER,
+} from "../utils/constants.utils";
 import "./appointment-styling.css";
 
 const AppointmentModal = (props) => {
@@ -18,31 +28,35 @@ const AppointmentModal = (props) => {
     selectedAppointmentTime,
     handleSave,
   } = props;
-  let submitButtonText = selectedAppointmentTime.available ? "Book" : "Update";
+  let submitButtonText = selectedAppointmentTime.available
+    ? BUTTON_BOOK
+    : BUTTON_UPDATE;
 
   return (
     <Container>
       <Modal isOpen={open} toggle={handleClose}>
-        <ModalHeader toggle={handleClose}>Contact Information</ModalHeader>
+        <ModalHeader toggle={handleClose}>
+          {APPOINTMENT_MODAL_HEADING}
+        </ModalHeader>
         <ModalBody>
           <FormGroup>
-            <Label for="userName">Name</Label>
+            <Label for="userName">{LABEL_NAME}</Label>
             <Input
               type="text"
               name="userName"
               id="userName"
-              placeholder="Enter your name"
+              placeholder={PLACEHOLDER_NAME}
               onChange={handleChange}
               value={selectedAppointmentTime.userName}
             />
           </FormGroup>
           <FormGroup>
-            <Label for="userPhone">Phone Number</Label>
+            <Label for="userPhone">{LABEL_PHONE_NUMBER}</Label>
             <Input
               type="tel"
               name="userPhone"
               id="userPhone"
-              placeholder="999-999-9999"
+              placeholder={PLACEHOLDER_PHONE_NUMBER}
               onChange={handleChange}
               value={selectedAppointmentTime.userPhone}
               maxLength={10}
@@ -61,7 +75,7 @@ const AppointmentModal = (props) => {
             {submitButtonText}
           </Button>
           <Button color="secondary" className="mx-1" onClick={handleClose}>
-            Cancel
+            {BUTTON_CANCEL}
           </Button>
         </ModalBody>
       </Modal>

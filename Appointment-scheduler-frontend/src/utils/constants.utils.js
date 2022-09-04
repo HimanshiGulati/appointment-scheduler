@@ -1,1 +1,12 @@
 export const API_URL = "http://localhost:9000/api";
+export const APPOINTMENT_DASHBOARD_HEADING = "Select Appointment Slot";
+export const BUTTON_BOOK_SLOT = "Book your slot";
+export const BUTTON_NO_SLOT = "Time slot is no longer available";
+export const APPOINTMENT_MODAL_HEADING = "Contact Information";
+export const BUTTON_CANCEL = "Cancel";
+export const BUTTON_BOOK = "Book";
+export const BUTTON_UPDATE = "Update";
+export const LABEL_NAME = "Name";
+export const LABEL_PHONE_NUMBER = "Phone Number";
+export const PLACEHOLDER_NAME = "Enter your name";
+export const PLACEHOLDER_PHONE_NUMBER = "Enter your phone number";

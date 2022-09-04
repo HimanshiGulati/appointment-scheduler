@@ -9,6 +9,7 @@ import * as Actions from "../store/appointment/appointment.actions";
 import AppointmentModal from "./appointment-modal";
 import "./appointment-styling.css";
 import Loading from "../components/loading.component";
+import { APPOINTMENT_DASHBOARD_HEADING } from "../utils/constants.utils";
 
 const AppointmentDashboard = () => {
   const appointmentData = useSelector(
@@ -97,7 +98,7 @@ const AppointmentDashboard = () => {
         <Loading />
       ) : (
         <div>
-          <h5 className="p-15">Select Appointment Slot</h5>
+          <h5 className="p-15">{APPOINTMENT_DASHBOARD_HEADING}</h5>
           <Row className="p-15">
             {appointmentData.map((appointmentItem) => {
               return (
