@@ -17,12 +17,10 @@ const AppointmentItem = (props) => {
     <React.Fragment>
       <Col sm="6" key={id} className="pb-20">
         <Card body key={id}>
-          <CardTitle tag="h5">{appointmentTime}</CardTitle>
-          <Button
-            color={appointmentStatus}
-            onClick={wrapShowEditModal}
-            data-appointment-id={id}
-          >
+          <CardTitle tag="h5" data-testid={id}>
+            {appointmentTime}
+          </CardTitle>
+          <Button color={appointmentStatus} onClick={wrapShowEditModal}>
             {buttonText}
           </Button>
         </Card>

@@ -4,8 +4,13 @@ import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 
 import App from "./App";
+import AppointmentDashboard from "./pages/appointment-dashboard";
 
-test("Renders Select Appointment Slot heading", () => {
-  const { getByText } = render(<App />);
-  expect(getByText("Select Appointment Slot")).toBeInTheDocument();
+jest.mock("./pages/appointment-dashboard", () => () => (
+  <div data-testid="appointment-dasboard"></div>
+));
+
+test("Renders Appointment Dashboard component", () => {
+  const { getByTestId } = render(<App />);
+  expect(getByTestId(/appointment-dasboard/)).toBeInTheDocument();
 });
