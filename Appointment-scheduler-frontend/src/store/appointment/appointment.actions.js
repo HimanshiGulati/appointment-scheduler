@@ -1,13 +1,14 @@
 import axios from "axios";
 import { APPOINTMENT_ACTION_TYPES } from "./appointment.types";
 import { toast } from "react-toastify";
+import { API_URL } from "../../utils/constants.utils";
 
 export const listAppointmentSlots = () => async (dispatch) => {
   dispatch({
     type: APPOINTMENT_ACTION_TYPES.APPOINTMENT_LIST_REQUEST,
   });
   try {
-    const { data } = await axios.get("http://localhost:9000/api/appointments");
+    const { data } = await axios.get(`${API_URL}/appointments`);
     dispatch({
       type: APPOINTMENT_ACTION_TYPES.APPOINTMENT_LIST_SUCCESS,
       payload: data,
@@ -33,12 +34,10 @@ export const selectAppointment = (appointmentItem) => ({
 
 export const updateAppointment =
   (updatedAppointmentList, updatedAppointment) => async (dispatch) => {
-    axios
-      .post("http://localhost:9000/api/bookappointment", updatedAppointment)
-      .then((res) => {
-        console.log(res.data);
-        toast(res.data.message);
-      });
+    axios.post(`${API_URL}/bookappointment`, updatedAppointment).then((res) => {
+      console.log(res.data);
+      toast(res.data.message);
+    });
     dispatch({
       type: APPOINTMENT_ACTION_TYPES.UPDATE_APPOINTMENT,
       payload: {

@@ -57,12 +57,6 @@ const AppointmentDashboard = () => {
   const saveUserDetails = () => {
     let updatedAppointment;
     if (
-      selectedAppointmentTime.userName === "" &&
-      selectedAppointmentTime.userPhone === ""
-    ) {
-      toast("Entervalue");
-    }
-    if (
       selectedAppointmentTime.userName !== "" ||
       selectedAppointmentTime.userPhone !== ""
     ) {
