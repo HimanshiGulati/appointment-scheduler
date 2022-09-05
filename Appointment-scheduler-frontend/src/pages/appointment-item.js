@@ -5,8 +5,8 @@ import "./appointment-styling.css";
 
 const AppointmentItem = (props) => {
   const { appointmentTime, available, id } = props.appointmentItem;
-  let appointmentStatus = available ? "primary" : "danger";
-  let buttonText = available ? BUTTON_BOOK_SLOT : BUTTON_NO_SLOT;
+  const appointmentStatus = available ? "primary" : "danger";
+  const buttonText = available ? BUTTON_BOOK_SLOT : BUTTON_NO_SLOT;
 
   const wrapShowEditModal = () => {
     props.showEditModal(props.appointmentItem);

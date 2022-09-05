@@ -28,7 +28,7 @@ const AppointmentModal = (props) => {
     selectedAppointmentTime,
     handleSave,
   } = props;
-  let submitButtonText = selectedAppointmentTime.available
+  const submitButtonText = selectedAppointmentTime.available
     ? BUTTON_BOOK
     : BUTTON_UPDATE;
 
